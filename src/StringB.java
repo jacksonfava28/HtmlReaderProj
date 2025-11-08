@@ -4,20 +4,29 @@
  * Expected output: Hashtag: #coding, Hashtag: #Java
  */
 
-public class B_HashtagExtractor {
+public class StringB {
 
     public static void main(String[] args) {
-        B_HashtagExtractor b = new B_HashtagExtractor();
+        StringB b = new StringB();
     }
 
-    public B_HashtagExtractor() {
+    public StringB() {
         String post = "I love #coding and #Java!";
         extractHashtags(post); // Output: Hashtag: #coding, Hashtag: #Java
     }
 
     public void extractHashtags(String post) {
-        /* TODO: your code goes here */
+        // Split the string into words using spaces as separators
+        String[] words = post.split(" ");
 
+        // Loop through each word
+        for (String word : words) {
+            // Check if the word starts with '#'
+            if (word.startsWith("#")) {
+                // Remove punctuation like commas or exclamation points at the end
+                word = word.replaceAll("[^#\\w]", "");
+                System.out.println("Hashtag: " + word);
+            }
+        }
     }
-
 }

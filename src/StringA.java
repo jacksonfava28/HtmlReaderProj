@@ -5,21 +5,23 @@
  * Expected output: Username: kim_possible25
  */
 
-public class A_NameFinder {
+public class StringA {
 
     public static void main(String[] args) {
-        A_NameFinder a = new A_NameFinder();
+        StringA a = new StringA();
     }
 
-    public A_NameFinder() {
+    public StringA() {
         String email = "kim_possible25@milton.edu";
         System.out.println("Username: " + findUsername(email)); // Output: Username: kim_possible25
     }
 
     public String findUsername(String email) {
-        /* TODO: your code goes here */
+        // Find the index position of the '@' symbol
+        int atIndex = email.indexOf('@');
 
-        return ""; // this is a temporary return to avoid errors
+        // Return everything before '@'
+        return email.substring(0, atIndex);
     }
 
 }
