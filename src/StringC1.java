@@ -5,20 +5,28 @@
  * Expected output: Hidden word: Hello
  */
 
-public class C1_HiddenWordFinder {
+public class StringC1 {
 
     public static void main(String[] args) {
-        C1_HiddenWordFinder c = new C1_HiddenWordFinder();
+        StringC1 c = new StringC1();
     }
 
-    public C1_HiddenWordFinder() {
+    public StringC1() {
         String sentence = "This is a test startHelloend string.";
         findHiddenWord(sentence);  // Output: Hidden word: Hello
     }
 
     public void findHiddenWord(String sentence) {
-        /* TODO: your code goes here */
+        // Find where "start" begins and ends
+        int startIndex = sentence.indexOf("start");
+        int endIndex = sentence.indexOf("end");
 
+        // Extract the text between "start" and "end"
+        if (startIndex != -1 && endIndex != -1 && endIndex > startIndex) {
+            String hidden = sentence.substring(startIndex + 5, endIndex);
+            System.out.println("Hidden word: " + hidden);
+        } else {
+            System.out.println("Markers not found.");
+        }
     }
-
 }
